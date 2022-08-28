@@ -1,0 +1,57 @@
+@model webappPC1.Models.Alumno
+
+
+<div >
+   <strong><h1 class="display-4">MATRICULAR A ALUMNO EN NUEVO CURSO:</h1></strong> 
+    <form asp-controller="Alumno" asp-action="Create">
+       
+      <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+       <strong> <label asp-for="dni" class="control-label"></label></strong><br>
+        <input asp-for="dni" class="col-sm-8 col-sm-offset-2" /> <br>
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+       <strong><label asp-for="nombres" class="control-label"></label></strong><br>
+        <input asp-for="nombres" class="col-sm-8 col-sm-offset-2" /> <br>
+      
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+       <strong> <label asp-for="apellidos" class="control-label"></label> </strong><br>
+        <input asp-for="apellidos" class="col-sm-8 col-sm-offset-2" /> <br>
+        
+       
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+       <strong><label asp-for="cursos" class="control-label"></label> </strong>   
+            <div class="form-check" >
+                <input class="form-check-input"asp-for="cursos" type="checkbox" value="Matematica">
+                <label> Matematica</label>
+            </div> 
+            <div class="form-check" >
+                <input class="form-check-input"  asp-for="cursos" type="checkbox" value="Historia">
+                <label> Historia</label>
+            </div> 
+            <div class="form-check" >
+                <input class="form-check-input" asp-for="cursos" type="checkbox" value=" Lenguaje">
+                <label>Lenguaje</label>
+            </div> 
+
+
+
+           <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+       <strong><label asp-for="creditos" class="control-label"></label> </strong>
+            <br> 
+           <input type="radio" asp-for="creditos" value="3" >
+           <label >3 CRÉDITOS(SI ESCOGISTE 1 CURSO)</label><br> 
+           <input type="radio" asp-for="creditos" value="6">
+           <label >6 CRÉDITOS(SI ESCOGISTE 2 CURSOS) </label><br> 
+           <input type="radio" asp-for="creditos" value="9" >
+           <label >9 CRÉDITOS(SI ESCOGISTE 3 CURSOS)</label> <br> 
+
+        
+       <br> <button type="submit" class="btn btn-primary">REGISTRAR AL ALUMNO EN LOS CURSO</button> <br>
+    </form>
+
+
+    <br><br>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
